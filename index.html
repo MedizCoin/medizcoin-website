@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedizCoin - Terveydenhuollon tulevaisuus</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .hero-bg { background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-heart-pulse text-3xl text-sky-600"></i>
+        <span class="text-2xl font-bold">MedizCoin</span>
+      </div>
+      <button onclick="openBetaModal()" class="bg-sky-600 hover:bg-sky-700 text-white px-8 py-3 rounded-2xl font-semibold transition">
+        Liity Betaan Nyt
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-bg text-white py-24">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">Terveydenhuollon tulevaisuus<br>on sinun käsissäsi</h1>
+      <p class="text-2xl mb-10">Ansaitse MedizCoinia. Omista terveysdatasi. Muuta terveydenhuoltoa blockchainilla.</p>
+      <button onclick="openBetaModal()" class="bg-white text-sky-600 px-10 py-5 rounded-3xl text-xl font-bold hover:scale-105 transition">
+        Liity Beta-testaajaksi →
+      </button>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">Miten MedizCoin toimii?</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="text-center">
+          <i class="fa-solid fa-database text-5xl text-sky-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Omista datasi</h3>
+          <p>Talleta terveysdatasi turvallisesti ja hallitse käyttöoikeuksia.</p>
+        </div>
+        <div class="text-center">
+          <i class="fa-solid fa-coins text-5xl text-amber-500 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Ansaitse tokeneita</h3>
+          <p>Päivitä tietojasi, liiku ja ansaitse MedizCoinia.</p>
+        </div>
+        <div class="text-center">
+          <i class="fa-solid fa-cart-shopping text-5xl text-emerald-500 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Osta tuotteita</h3>
+          <p>Käytä tokeneitasi lääkkeisiin ja terveystuotteisiin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beta Modal -->
+  <div id="betaModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+    <div class="bg-white rounded-3xl max-w-md w-full mx-4 p-8">
+      <h3 class="text-2xl font-bold text-center mb-6">Liity Betaan</h3>
+      
+      <div id="step1">
+        <p class="text-center mb-8">Haluatko liittyä beta-testaajien jonoon?</p>
+        <div class="flex gap-4">
+          <button onclick="showForm()" class="flex-1 bg-sky-600 text-white py-4 rounded-2xl font-semibold">Kyllä</button>
+          <button onclick="closeModal()" class="flex-1 bg-gray-200 py-4 rounded-2xl font-semibold">Ei</button>
+        </div>
+      </div>
+
+      <div id="step2" class="hidden">
+        <form onsubmit="submitBetaForm(event)">
+          <input type="text" id="name" placeholder="Nimi" required class="w-full mb-4 px-4 py-3 border rounded-2xl">
+          <input type="email" id="email" placeholder="Sähköposti" required class="w-full mb-4 px-4 py-3 border rounded-2xl">
+          <input type="text" id="wallet" placeholder="Solana Wallet (valinnainen)" class="w-full mb-4 px-4 py-3 border rounded-2xl">
+<textarea id="message" placeholder="Miksi haluat liittyä?" required rows="4" class="w-full mb-6 px-4 py-3 border rounded-3xl"></textarea>
+          
+          <div class="flex gap-3">
+            <button type="button" onclick="backToStep1()" class="flex-1 py-4 border rounded-2xl">Takaisin</button>
+            <button type="submit" class="flex-1 bg-sky-600 text-white py-4 rounded-2xl font-semibold">Lähetä</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openBetaModal() {
+      document.getElementById('betaModal').classList.remove('hidden');
+      document.getElementById('step1').classList.remove('hidden');
+      document.getElementById('step2').classList.add('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('betaModal').classList.add('hidden');
+    }
+
+    function showForm() {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
+    }
+
+    function backToStep1() {
+      document.getElementById('step2').classList.add('hidden');
+      document.getElementById('step1').classList.remove('hidden');
+    }
+
+    function submitBetaForm(e) {
+      e.preventDefault();
+      alert("Kiitos! Beta-hakemuksesi on vastaanotettu. Otamme yhteyttä pian.");
+      closeModal();
+    }
+  </script>
+</body>
+</html>
