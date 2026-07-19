@@ -38,7 +38,7 @@
   </section>
 
   <!-- Features -->
-  <section class="py-20">
+  <section class="py-20 bg-white">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-16">Miten MedizCoin toimii?</h2>
       <div class="grid md:grid-cols-3 gap-10">
@@ -61,10 +61,53 @@
     </div>
   </section>
 
+  <!-- Blockchain -->
+  <section class="py-20 bg-gray-900 text-white">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-12">Miksi juuri blockchain?</h2>
+      <div class="max-w-3xl mx-auto">
+        <p class="text-lg mb-10">
+          Perinteisessä terveydenhuollossa datasi on hajallaan ja sinulla ei ole kontrollia. 
+          Blockchain antaa sinulle vallan takaisin.
+        </p>
+        <div class="grid md:grid-cols-2 gap-8 text-left">
+          <div class="flex gap-4">
+            <span class="text-emerald-400 text-2xl">✔</span>
+            <div>
+              <strong>Turvallisuus & Yksityisyys</strong><br>
+              GDPR-yhteensopiva, salattu data
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="text-emerald-400 text-2xl">✔</span>
+            <div>
+              <strong>Nopeat & halvat transaktiot</strong><br>
+              Solana-blockchain
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="text-emerald-400 text-2xl">✔</span>
+<div>
+              <strong>Tulevaisuuden tunnistautuminen</strong><br>
+              Siru + iiris
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="text-emerald-400 text-2xl">✔</span>
+            <div>
+              <strong>Kannustimet</strong><br>
+              Ansaitse tokeneita terveellisistä teoista
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Beta Modal -->
   <div id="betaModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
     <div class="bg-white rounded-3xl max-w-md w-full mx-4 p-8">
-      <h3 class="text-2xl font-bold text-center mb-6">Liity Betaan</h3>
+      <h3 class="text-2xl font-bold text-center mb-6">Liity MedizCoin Betaan</h3>
       
       <div id="step1">
         <p class="text-center mb-8">Haluatko liittyä beta-testaajien jonoon?</p>
@@ -76,14 +119,14 @@
 
       <div id="step2" class="hidden">
         <form onsubmit="submitBetaForm(event)">
-          <input type="text" id="name" placeholder="Nimi" required class="w-full mb-4 px-4 py-3 border rounded-2xl">
-          <input type="email" id="email" placeholder="Sähköposti" required class="w-full mb-4 px-4 py-3 border rounded-2xl">
-          <input type="text" id="wallet" placeholder="Solana Wallet (valinnainen)" class="w-full mb-4 px-4 py-3 border rounded-2xl">
-<textarea id="message" placeholder="Miksi haluat liittyä?" required rows="4" class="w-full mb-6 px-4 py-3 border rounded-3xl"></textarea>
+          <input type="text" id="name" placeholder="Nimi *" required class="w-full mb-4 px-4 py-3 border rounded-2xl">
+          <input type="email" id="email" placeholder="Sähköposti *" required class="w-full mb-4 px-4 py-3 border rounded-2xl">
+          <input type="text" id="wallet" placeholder="Solana Wallet-osoite (valinnainen)" class="w-full mb-4 px-4 py-3 border rounded-2xl">
+          <textarea id="message" placeholder="Miksi haluat liittyä beta-testaajaksi? *" required rows="4" class="w-full mb-6 px-4 py-3 border rounded-3xl"></textarea>
           
           <div class="flex gap-3">
             <button type="button" onclick="backToStep1()" class="flex-1 py-4 border rounded-2xl">Takaisin</button>
-            <button type="submit" class="flex-1 bg-sky-600 text-white py-4 rounded-2xl font-semibold">Lähetä</button>
+            <button type="submit" class="flex-1 bg-sky-600 text-white py-4 rounded-2xl font-semibold">Lähetä hakemus</button>
           </div>
         </form>
       </div>
@@ -113,7 +156,7 @@
 
     function submitBetaForm(e) {
       e.preventDefault();
-      alert("Kiitos! Beta-hakemuksesi on vastaanotettu. Otamme yhteyttä pian.");
+      alert("✅ Kiitos! Beta-hakemuksesi on vastaanotettu. Otamme yhteyttä pian.");
       closeModal();
     }
   </script>
